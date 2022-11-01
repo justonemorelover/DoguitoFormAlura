@@ -1,8 +1,62 @@
-const dataNascimento = document.querySelector('#nascimento');
 
-dataNascimento.addEventListener('blur', (evento) => { //'blur' = fora de foco;
-    validaDataNascimento(evento.target)
-});
+export function valida(input) {
+    const tipoDeInput = input.dataset.tipo
+
+    if(validadores[tipoDeInput]) {
+        validadores[tipoDeInput](input);
+    }
+
+    if(input.validity.valid) {
+        input.parentElement.classList.remove('input-container--invalido');
+        input.parentElement.querySelector('.input-mensagem-erro').innerHTML = '';
+    } else {
+        input.parentElement.classList.add('input-container--invalido');
+        input.parentElement.querySelector('.input-mensagem-erro').innerHTML = mostraMensagemDeErro(tipoDeInput, input);
+    }
+}
+
+const tiposDeErro = [
+    'valueMissing',
+    'typeMismatch',
+    'patternMismatch',
+    'customError'
+]
+
+const mensagensDeErro = {
+    nome: {
+        valueMissing: 'O campo "nome" não pode estar vazio.'
+    },
+    email: {
+        valueMissing: 'O campo "email" não pode estar vazio.',
+        typeMismatch: 'O email deve seguir o padrão: "email@email.com'
+    },
+    senha: {
+        valueMissing: 'O campo "senha" não pode estar vazio.',
+        patternMismatch: 'A senha deve conter entre 6 e 12 caracteres, no minimo uma letra maiuscula, um numero e não deve conter símbolos.'
+        
+    },
+    dataNascimento: {
+        valueMissing: 'O campo "data de nascimento" não pode estar vazio.',
+        customError: 'Você precisa ter mais que 18 anos de idade para efetuar um cadastro.'
+    }
+}
+
+const validadores = {
+    dataNascimento:input => validaDataNascimento(input)
+}
+
+function mostraMensagemDeErro(tipoDeInput, input) {
+    let mensagem = '';
+
+    tiposDeErro.forEach(erro => {   
+        if(input.validity[erro]) {
+            mensagem = mensagensDeErro[tipoDeInput][erro]
+        }
+    })
+
+    return mensagem;
+
+}
 
 function validaDataNascimento(input) {
     const dataRecebida = new Date(input.value); //valor passado no imput;
