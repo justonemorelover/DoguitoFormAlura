@@ -1,0 +1,18 @@
+// LÓGICA VERIFICAÇÃO CPF \\
+
+// function checaDigitoVerificador(cpf, multiplicador) {
+//     let soma = 0
+//     let contador = 0
+//     const cpfSemDigitos = cpf.substr(0, multiplicador - 1).split('')
+//     const digitoVerificador = cpf.charAt(multiplicador - 1)
+//     for(contador; multiplicador > 1 ; multiplicador--) {
+//         soma = soma + cpfSemDigitos[contador] * multiplicador
+//         contador++
+//     }
+
+//     if(soma % 11 > 9) {
+//         return digitoVerificador == 0
+//     }
+
+//     return digitoVerificador == 11 - (soma % 11)
+// }
