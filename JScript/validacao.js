@@ -43,22 +43,25 @@ const mensagensDeErro = {
         customError: 'Você precisa ter mais que 18 anos de idade para efetuar um cadastro.'
     },
     cpf: {
-        valueMissing: 'O campo "CPF" não pode estar vazio',
-        customError: 'O CPF digitado não é valido'
+        valueMissing: 'O campo "CPF" não pode estar vazio.',
+        customError: 'O CPF digitado não é valido.'
     },
     cep: {
-        valueMissing: 'O campo "CEP" não pode estar vazio',
-        patternMismatch: 'O CEP inserido não é valido',
+        valueMissing: 'O campo "CEP" não pode estar vazio.',
+        patternMismatch: 'O CEP inserido não é valido.',
         customError: 'Não foi possivel encontrar informações do CEP.'
     },
     logradouro: {
-        valueMissing: 'O campo "logradouro" não pode estar vazio',
+        valueMissing: 'O campo "logradouro" não pode estar vazio.',
     },
     cidade: {
-        valueMissing: 'O campo "cidade" não pode estar vazio',
+        valueMissing: 'O campo "cidade" não pode estar vazio.',
     },
     estado: {
-        valueMissing: 'O campo "estado" não pode estar vazio',
+        valueMissing: 'O campo "estado" não pode estar vazio.',
+    },
+    preco: {
+        valueMissing:'O campo "preço" não pode estar vazio.'
     }
 }
 
